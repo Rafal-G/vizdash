@@ -7,27 +7,26 @@
  * # podDirective
  */
 angular.module('vizdashApp')
-  .controller('ProcessController', ['$scope', 'PodService', function($scope, PodService) {
+  .controller('ProcessController', ['$scope', 'ProcessService', function($scope, ProcessService) {
     $scope.count = 0;
     $scope.addCounter = function() {
       console.log("Counter clicked");
       $scope.count++;
     };
 
-    $scope.processCount = PodService.getProcessCount();
+    $scope.processCount = ProcessService.getProcessCount();
 
 
   }])
-  .directive('processDirective', ['PodService', function (PodService) {
+  .directive('processDirective', function () {
     return {
       templateUrl: 'views/processview.html',
       restrict: 'E',
       link: function(scope, element, attrs) {
         scope.removeDirective = function() {
-          PodService.decrementProcessCount();
           scope.$destroy();
           element.remove();
         };
       }
     };
-  }]);
+  });

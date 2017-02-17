@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc service
- * @name vizdashApp.podService
+ * @name vizdashApp.processService
  * @description
  * # podService
  * Service in the vizdashApp.
  */
 angular.module('vizdashApp')
-  .service('PodService', function () {
+  .service('ProcessService', function () {
     var processCount = 0;
 
     return {
@@ -18,10 +18,6 @@ angular.module('vizdashApp')
 
       incrementProcessCount: function () {
         processCount++;
-      },
-
-      decrementProcessCount: function() {
-        processCount--;
       }
     }
   });
