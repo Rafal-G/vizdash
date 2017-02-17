@@ -17,7 +17,7 @@ angular.module('vizdashApp')
   }])
   .directive('podDirective', function () {
     return {
-      template: '<div><button ng-click="addCounter()">Counter</button> Count: {{count}}</div>',
+      template: '<div class="col-md-6"><button ng-click="addCounter()">Counter</button> Count: {{count}}</div>',
       restrict: 'E'
     };
   });
