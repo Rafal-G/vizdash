@@ -7,12 +7,17 @@
  * # podDirective
  */
 angular.module('vizdashApp')
+  .controller('PodController', ['$scope', function($scope) {
+    $scope.count = 0;
+    $scope.addCounter = function() {
+      console.log("Counter clicked");
+      $scope.count++;
+    };
+
+  }])
   .directive('podDirective', function () {
     return {
-      template: '<div></div>',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the podDirective directive');
-      }
+      template: '<div><button ng-click="addCounter()">Counter</button> Count: {{count}}</div>',
+      restrict: 'E'
     };
   });

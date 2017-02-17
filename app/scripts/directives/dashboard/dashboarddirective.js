@@ -13,7 +13,7 @@ angular.module('vizdashApp')
       console.log("Adding pod");
 
 
-      var podFactory = $compile("<pod-directive></pod-directive>");
+      var podFactory = $compile("<div ng-controller='PodController'><pod-directive></pod-directive></div>");
       var podDiv = podFactory($scope);
       var containerDiv = document.getElementById('podContainer');
       angular.element(containerDiv).append(podDiv);
