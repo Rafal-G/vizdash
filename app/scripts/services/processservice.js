@@ -10,7 +10,7 @@
 angular.module('vizdashApp')
   .service('ProcessService', function () {
     var processCount = 0;
-    
+
     var subtract = function (x, y) {
       return x - y;
     };

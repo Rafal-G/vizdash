@@ -1,7 +1,8 @@
 .processcontainer {
   border-radius: 5px;
   background: #f8f8f8;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  margin-right: 8px;
 }
 
 .processTitleBar {
@@ -56,6 +57,7 @@
   height: 100%;
   vertical-align: middle;
   line-height: 40px;
+
 }
 
 .processCpu {
@@ -77,7 +79,7 @@
 .headerText {
   padding: 10px;
   font-size: 32px;
-  color: #DCE1E6;
+  color: #646E7d;
 }
 
 .processUptimeValue {
@@ -85,7 +87,7 @@
 }
 
 .glyphicon {
-  color: #646e7d;
+  color: #646E7d;
 }
 
 .red {
@@ -94,6 +96,28 @@
 
 .green {
   color: green;
+}
+
+/* D3 */
+.area {
+  fill: lightsteelblue;
+  stroke-width: 0;
+}
+
+.tick {
+  stroke-dasharray: 1, 2;
+  visibility:hidden;
+}
+
+.axis path,
+.axis line{
+  fill: none;
+  shape-rendering:crispEdge;
+}
+
+.axis text{
+  font-family: sans-serif;
+  font-size: 10px;
 }
 
 /* FONTS */

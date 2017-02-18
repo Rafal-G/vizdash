@@ -1,19 +1,20 @@
 <!--<div fader fadeDuration="200" fadeShown="fadedIn" class="col-md-6">-->
 <div class="col-md-6">
   <div class="processcontainer">
-    <div class="processTitleBar">
+    <div class="processTitleBar row">
       Process: {{processCount}}
       <i class="glyphicon glyphicon-remove pull-right" ng-click="removeDirective()"></i>
 
     </div>
-    <div class="processCpu">
+    <div class="processCpu row">
       <div class="col-md-3 cpuPercent">
         <div>CPU %</div>
         <div class="cpuUsage">{{cpuUsage}}</div>
       </div>
-      <div class="col-md-9 cpuChart" id="cpuChart"></div>
+      <div class="col-md-9 cpuChart" id="cpuChart" linear-chart-directive chart-data="salesData">
+      </div>
     </div>
-    <div class="metaData">
+    <div class="metaData row">
       <div class="metaDataIndividual processStatus col-md-2 col-sm-2">
         <div class="metaDataHeading">Status</div>
         <div class="processStatusData metaDataData"><span ng-class="{green: processStatus === 'On', red: processStatus === 'Off'}">{{processStatus}}</span></div>

@@ -7,7 +7,7 @@
  * # fader
  */
 angular.module('vizdashApp')
-  .directive('fader', function () {
+  .directive('faderDirective', function () {
     return {
       restrict: 'A',
       link: function($scope, element, attrs) {
