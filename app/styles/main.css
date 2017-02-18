@@ -1,6 +1,13 @@
 .processcontainer {
   padding: 10px
 }
+#processCpu {
+  height: 80px;
+}
+
+#metaData {
+  height: 60px
+}
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;

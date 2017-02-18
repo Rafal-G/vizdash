@@ -13,10 +13,7 @@ angular.module('vizdashApp')
       console.log("Counter clicked");
       $scope.count++;
     };
-
     $scope.processCount = ProcessService.getProcessCount();
-
-
   }])
   .directive('processDirective', function () {
     return {

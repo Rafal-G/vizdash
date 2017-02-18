@@ -1,14 +1,26 @@
 <div class="processcontainer col-md-6">
-  <button ng-click="addCounter()">Counter</button>
-  Count: {{count}}
-  <br>
-  <div id="podTitleBar">Process: {{processCount}} <button ng-click="removeDirective()">x</button></div>
-  <div id="podCpu">CPU area</div>
-  <div id="metaData">
-    <div id="podStatus" class="col-md-2 col-sm-2">Status</div>
-    <div id="podInstances" class="col-md-2 col-sm-2">Instances</div>
-    <div id="podMemory" class="col-md-2 col-sm-2">Memory</div>
-    <div id="podUptime" class="col-md-4 col-sm-4">Up Time</div>
-    <div id="podRestarts" class="col-md-2 col-sm-2">Restarts</div>
+  <div id="processTitleBar">Process: {{processCount}} <button class="pull-right" ng-click="removeDirective()">x</button></div>
+  <div id="processCpu" class="processCpu">CPU area</div>
+  <div id="metaData" class="metaData">
+    <div id="processStatus" class="col-md-2 col-sm-2">
+      <div>Status</div>
+      <div>On</div>
+    </div>
+    <div id="processInstances" class="col-md-2 col-sm-2">
+      <div>Instances</div>
+      <div>4</div>
+    </div>
+    <div id="processMemory" class="col-md-2 col-sm-2">
+      <div>Memory</div>
+      <div>39mb</div>
+    </div>
+    <div id="processUptime" class="col-md-4 col-sm-4">
+      <div>Up Time</div>
+      <div>2m</div>
+    </div>
+    <div id="processRestarts" class="col-md-2 col-sm-2">
+      <div>Restarts</div>
+      <div>0</div>
+    </div>
   </div>
 </div>
