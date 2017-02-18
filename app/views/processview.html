@@ -1,6 +1,12 @@
 <div class="processcontainer col-md-5">
   <div id="processTitleBar">Process: {{processCount}} <button class="pull-right" ng-click="removeDirective()">x</button></div>
-  <div id="processCpu" class="processCpu">CPU area</div>
+  <div id="processCpu" class="processCpu">
+    <div id="cpuPercent">
+      <div>CPU %</div>
+      <div>{{cpuUsage}} %</div>
+    </div>
+    <div id="cpuChart"></div>
+  </div>
   <div id="metaData" class="metaData">
     <div id="processStatus" class="col-md-2 col-sm-2">
       <div>Status</div>
@@ -16,7 +22,7 @@
     </div>
     <div id="processUptime" class="col-md-4 col-sm-4">
       <div>Up Time</div>
-      <div>2m</div>
+      <div>{{upTime| secondsToDate | date:'HH:mm:ss'}}</div>
     </div>
     <div id="processRestarts" class="col-md-2 col-sm-2">
       <div>Restarts</div>
