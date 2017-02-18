@@ -10,7 +10,7 @@ angular.module('vizdashApp')
   .directive('linearChartDirective', function($parse, $window){
     return{
       restrict:'EA',
-      template:"<svg width='320' height='80'></svg>",
+      template:"<svg width='350' height='90'></svg>",
       link: function(scope, elem, attrs){
         var exp = $parse(attrs.chartData);
 
