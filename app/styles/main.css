@@ -38,6 +38,7 @@
 .metaDataIndividual {
   border-left: 1px solid white;
   height: 100%;
+  background-color: #c8c8c8;
 }
 
 .processCpu {
