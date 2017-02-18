@@ -1,5 +1,8 @@
 .processcontainer {
-  padding: 10px
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #f8f8f8;
 }
 #processCpu {
   height: 80px;
@@ -8,6 +11,8 @@
 #metaData {
   height: 60px
 }
+
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
