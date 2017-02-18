@@ -10,6 +10,7 @@ angular.module('vizdashApp')
   .controller('ProcessController', ['$scope', '$timeout', 'ProcessService',function($scope, $timeout, ProcessService) {
     $scope.count = 0;
     $scope.cpuUsage = 0;
+    $scope.fadedIn = true;
     $scope.addCounter = function() {
       console.log("Counter clicked");
       $scope.count++;

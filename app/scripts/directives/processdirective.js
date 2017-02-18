@@ -12,6 +12,7 @@ angular.module('vizdashApp')
       templateUrl: 'views/processview.html',
       restrict: 'E',
       link: function(scope, element, attrs) {
+
         scope.removeDirective = function() {
           scope.$destroy();
           element.remove();
