@@ -7,7 +7,7 @@
  * Controller of the vizdashApp
  */
 angular.module('vizdashApp')
-  .controller('ProcessController', ['$scope', '$timeout', 'ProcessService', function ($scope, $timeout, ProcessService) {
+  .controller('ProcessController', ['$scope', '$timeout', '$http', 'ProcessService', function ($scope, $timeout, $http, ProcessService) {
     $scope.count = 0;
     $scope.processStatus = "On";
     $scope.cpuUsage = 0;
@@ -24,6 +24,10 @@ angular.module('vizdashApp')
       $timeout(ticker, 1000);
     };
     ticker();
+
+    // $http.get('/phones').then(function(response) {
+    //   console.log(response.data);
+    // });
 
     var updateMemory = function () {
       $scope.memoryUsage = ProcessService.getProcessMemory($scope.memoryUsage)

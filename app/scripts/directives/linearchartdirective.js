@@ -15,7 +15,6 @@ angular.module('vizdashApp')
         var exp = $parse(attrs.chartData);
 
         var cpuDataToPlot=exp(scope);
-        console.log(cpuDataToPlot);
         var padding = 20;
         var pathClass="path";
         var xScale, yScale, xAxisGen, yAxisGen, lineFun;
@@ -45,12 +44,12 @@ angular.module('vizdashApp')
           xAxisGen = d3.svg.axis()
             .scale(xScale)
             .orient("bottom")
-            .ticks(1);
+            .ticks(5);
 
           yAxisGen = d3.svg.axis()
             .scale(yScale)
             .orient("left")
-            .ticks(3);
+            .ticks(5);
 
           lineFun = d3.svg.line()
             .x(function (d) {
