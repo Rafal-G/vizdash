@@ -19,17 +19,28 @@ angular.module('vizdashApp')
       return x + y;
     };
 
+    var randomInt = function(max) {
+      return Math.floor((Math.random() * max) + 1);
+    };
+
     var modifyAmount = function (amount, operatorFunction) {
-      return operatorFunction(amount, Math.floor((Math.random() * 10) + 1));
+      return operatorFunction(amount, randomInt(10));
     };
 
     return {
+      //Create the process and return a promise.
       createProcess: function() {
-        var promise = $http.get('/v1/process').then(function(response) {
+        var promise = $http.get('/v1/process/create').then(function(response) {
           return response.data;
         });
         return promise;
       },
+
+      getInstances: function() {
+        return randomInt(10);
+      },
+
+      //Get process Memory from mock backend via promise
       getProcessMemory: function (amount) {
         if (amount >= 50) {
           return modifyAmount(amount, subtract);

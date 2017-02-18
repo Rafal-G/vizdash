@@ -1,32 +1,22 @@
 angular.module('vizdashApp').run(function ($httpBackend) {
-  var phones = [{name: 'phone1'}, {name: 'phone2'}];
   var initService = {'processStatus': 'On',
                       'cpuUsage': 0,
                       'memoryUsage':0,
-                      'instances':Math.floor((Math.random() * 10) + 1)};
+                      'uptime': 0,
+                      'instances': 0};
 
-  $httpBackend.whenGET('/v1/process').respond(initService);
-  // returns the current list of phones
-  $httpBackend.whenGET('/phones').respond(phones);
+  $httpBackend.whenGET('/v1/process/create').respond(initService);
+
+
 
   // adds a new phone to the phones array
-  $httpBackend.whenPOST('/phones').respond(function (method, url, data) {
-    var phone = angular.fromJson(data);
-    phones.push(phone);
-    return [200, phone, {}];
-  });
+  // $httpBackend.whenPOST('/phones').respond(function (method, url, data) {
+  //   var phone = angular.fromJson(data);
+  //   phones.push(phone);
+  //   return [200, phone, {}];
+  // });
 
   // allow views directory to go to real $http
-  // $httpBackend.whenGET (/.*/)
-  // .passThrough()
-  // $httpBackend.whenGET (/^\/views\//)
-  //   .passThrough()
-  // $httpBackend.whenGET (/^\/scripts\/.*/)
-  //   .passThrough()
-  // $httpBackend.whenGET (/^\/scripts\//)
-  //   .passThrough()
-  // $httpBackend.whenGET (/^\/bower_components\//)
-  //   .passThrough()
   $httpBackend.whenGET(/\.html$/).passThrough()
 
 });
