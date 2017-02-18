@@ -7,14 +7,13 @@
  * Controller of the vizdashApp
  */
 angular.module('vizdashApp')
-  .controller('ProcessController', ['$scope', '$timeout', '$interval', 'ProcessService', function ($scope, $timeout, $interval, ProcessService) {
+  .controller('ProcessController', ['$scope', '$timeout', 'ProcessService', function ($scope, $timeout, ProcessService) {
     $scope.count = 0;
     $scope.processStatus = "On";
     $scope.cpuUsage = 0;
     $scope.memoryUsage = 0;
     $scope.fadedIn = true;
     $scope.instances = Math.floor((Math.random() * 10) + 1);
-
     $scope.processCount = ProcessService.getProcessCount();
 
     $scope.upTime = 0;
@@ -30,27 +29,21 @@ angular.module('vizdashApp')
       $scope.memoryUsage = ProcessService.getProcessMemory($scope.memoryUsage)
     };
     var updateCPU = function () {
+
       $scope.cpuUsage = Math.floor((Math.random() * 100) + 1);
+      var time = $scope.cpuData.length + 1;
+      // var cpu = Math.round(Math.random() * 100);
+      $scope.cpuData.push({time: time, cpu: $scope.cpuUsage});
     };
 
-    $scope.salesData = [
-      {hour: 1, sales: 54},
-      {hour: 2, sales: 66},
-      {hour: 3, sales: 77},
-      {hour: 4, sales: 70},
-      {hour: 5, sales: 60},
-      {hour: 6, sales: 63},
-      {hour: 7, sales: 55},
-      {hour: 8, sales: 47},
-      {hour: 9, sales: 55},
-      {hour: 10, sales: 30}
+    $scope.cpuData = [
     ];
 
-    $interval(function () {
-      var hour = $scope.salesData.length + 1;
-      var sales = Math.round(Math.random() * 100);
-      $scope.salesData.push({hour: hour, sales: sales});
-
-    }, 1000, 1000);
+    var seedCpuData = function() {
+      for(var i = 0; i < 11; i++) {
+        $scope.cpuData.push({time: i, cpu: 0})
+      }
+    };
+    seedCpuData();
   }]);
 

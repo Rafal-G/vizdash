@@ -14,7 +14,8 @@ angular.module('vizdashApp')
       link: function(scope, elem, attrs){
         var exp = $parse(attrs.chartData);
 
-        var salesDataToPlot=exp(scope);
+        var cpuDataToPlot=exp(scope);
+        console.log(cpuDataToPlot);
         var padding = 20;
         var pathClass="path";
         var xScale, yScale, xAxisGen, yAxisGen, lineFun;
@@ -25,19 +26,19 @@ angular.module('vizdashApp')
         var xMin = 0;
         scope.$watchCollection(exp, function(newVal, oldVal){
           xMin++;
-          salesDataToPlot=newVal;
+          cpuDataToPlot=newVal;
           redrawLineChart();
         });
 
         function setChartParameters(){
 
           xScale = d3.scale.linear()
-            .domain([salesDataToPlot[xMin].hour, salesDataToPlot[salesDataToPlot.length-1].hour])
+            .domain([cpuDataToPlot[xMin].time, cpuDataToPlot[cpuDataToPlot.length-1].time])
             .range([padding + 5, rawSvg.attr("width") - padding]);
 
           yScale = d3.scale.linear()
-            .domain([0, d3.max(salesDataToPlot, function (d) {
-              return d.sales;
+            .domain([0, d3.max(cpuDataToPlot, function (d) {
+              return d.cpu;
             })])
             .range([rawSvg.attr("height") - padding, 0]);
 
@@ -53,10 +54,10 @@ angular.module('vizdashApp')
 
           lineFun = d3.svg.line()
             .x(function (d) {
-              return xScale(d.hour);
+              return xScale(d.time);
             })
             .y(function (d) {
-              return yScale(d.sales);
+              return yScale(d.cpu);
             })
             .interpolate("basis");
         }
@@ -77,7 +78,7 @@ angular.module('vizdashApp')
 
           svg.append("svg:path")
             .attr({
-              d: lineFun(salesDataToPlot),
+              d: lineFun(cpuDataToPlot),
               "stroke": "blue",
               "stroke-width": 2,
               "fill": "none",
@@ -95,7 +96,7 @@ angular.module('vizdashApp')
 
           svg.selectAll("."+pathClass)
             .attr({
-              d: lineFun(salesDataToPlot)
+              d: lineFun(cpuDataToPlot)
             });
         }
 
