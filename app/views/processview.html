@@ -1,34 +1,36 @@
 <!--<div fader fadeDuration="200" fadeShown="fadedIn" class="col-md-6">-->
 <div class="col-md-6">
   <div class="processcontainer">
-    <div id="processTitleBar">Process: {{processCount}}
-      <button class="pull-right" ng-click="removeDirective()">x</button>
+    <div class="processTitleBar">
+      Process: {{processCount}}
+      <i class="glyphicon glyphicon-remove pull-right" ng-click="removeDirective()"></i>
+
     </div>
-    <div id="processCpu" class="processCpu">
-      <div id="cpuPercent">
+    <div class="processCpu">
+      <div class="col-md-3 cpuPercent">
         <div>CPU %</div>
-        <div>{{cpuUsage}} %</div>
+        <div class="cpuUsage">{{cpuUsage}}</div>
       </div>
-      <div id="cpuChart"></div>
+      <div class="col-md-9 cpuChart" id="cpuChart"></div>
     </div>
-    <div id="metaData" class="metaData">
-      <div id="processStatus" class="col-md-2 col-sm-2">
+    <div class="metaData">
+      <div class="metaDataIndividual processStatus col-md-2 col-sm-2">
         <div>Status</div>
         <div>On</div>
       </div>
-      <div id="processInstances" class="col-md-2 col-sm-2">
+      <div class="metaDataIndividual processInstances col-md-3 col-sm-3">
         <div>Instances</div>
         <div>4</div>
       </div>
-      <div id="processMemory" class="col-md-2 col-sm-2">
+      <div class="metaDataIndividual processMemory col-md-2 col-sm-2">
         <div>Memory</div>
         <div>39mb</div>
       </div>
-      <div id="processUptime" class="col-md-4 col-sm-4">
+      <div class="metaDataIndividual processUptime col-md-3 col-sm-3">
         <div>Up Time</div>
-        <div>{{upTime| secondsToDate | date:'HH:mm:ss'}}</div>
+        <div class="processUptimeValue">{{upTime| secondsToDate | date:'HH:mm:ss'}}</div>
       </div>
-      <div id="processRestarts" class="col-md-2 col-sm-2">
+      <div class="metaDataIndividual processRestarts col-md-2 col-sm-2">
         <div>Restarts</div>
         <div>0</div>
       </div>

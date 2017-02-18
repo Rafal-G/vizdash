@@ -1,35 +1,85 @@
 .processcontainer {
   border-radius: 5px;
   background: #f8f8f8;
-  margin-bottom:10px;
+  margin-bottom: 10px;
+}
+
+.processTitleBar {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #373C46;
+  color: #4B9BB4;
   padding: 5px;
 }
 
 .vizdashcontainer {
   margin: 30px;
   border-radius: 5px;
-  background: white;
+  background: whitesmoke;
   height: 100%;
   min-height: 55em;
 }
-#processCpu {
-  height: 80px;
+
+.cpuChart {
+  background-color: #4696c8;
+  height: 100%;
 }
 
-#metaData {
-  height: 60px
+.cpuUsage {
+  color: #646E7D;
+  font-size: 24px;
+}
+
+.cpuPercent {
+  background-color: #373C46;
+  height: 100%;
+}
+
+.metaDataIndividual {
+  border-left: 1px solid white;
+  height: 100%;
+}
+
+.processCpu {
+  height: 80px;
+  color: #A0A0AF;
+  text-align: center;
+}
+
+.metaData {
+  height: 60px;
+  text-align: center;
 }
 
 .logoImage {
   padding: 10px;
-  max-width:200px;
+  max-width: 200px;
 }
+
 .headerText {
   padding: 10px;
   font-size: 32px;
   color: #DCE1E6;
 }
 
+.processUptimeValue {
+  font-family: DjbGetDigital;
+}
+
+.glyphicon {
+  color: #646e7d;
+}
+
+/* FONTS */
+@font-face {
+  font-family: SegoeUI;
+  src: url(../fonts/segoeui.ttf);
+}
+
+@font-face {
+  font-family: DjbGetDigital;
+  src: url(../fonts/DJBGetDigital.ttf)
+}
 
 /* GRUNT GENERATED */
 
@@ -41,6 +91,7 @@
 }
 
 body {
+  font-family: SegoeUI;
   padding: 0;
   background-color: #373C46;
   height: 100%;
@@ -59,6 +110,7 @@ body {
 .header {
   margin-bottom: 10px;
 }
+
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -80,9 +132,8 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /*.container {*/
-    /*max-width: 730px;*/
+  /*max-width: 730px;*/
   /*}*/
-
   /* Remove the padding we set earlier */
   .header,
   .marketing,
@@ -90,6 +141,7 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
+
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
