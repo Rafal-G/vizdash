@@ -8,7 +8,7 @@
  * Service in the vizdashApp.
  */
 angular.module('vizdashApp')
-  .service('ProcessService', function () {
+  .service('ProcessService',['$http', function ($http) {
     var processCount = 0;
 
     var subtract = function (x, y) {
@@ -24,6 +24,12 @@ angular.module('vizdashApp')
     };
 
     return {
+      createProcess: function() {
+        var promise = $http.get('/v1/process').then(function(response) {
+          return response.data;
+        });
+        return promise;
+      },
       getProcessMemory: function (amount) {
         if (amount >= 50) {
           return modifyAmount(amount, subtract);
@@ -39,4 +45,4 @@ angular.module('vizdashApp')
         processCount++;
       }
     }
-  });
+  }]);

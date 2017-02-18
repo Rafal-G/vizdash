@@ -7,14 +7,20 @@
  * Controller of the vizdashApp
  */
 angular.module('vizdashApp')
-  .controller('ProcessController', ['$scope', '$timeout', '$http', 'ProcessService', function ($scope, $timeout, $http, ProcessService) {
-    $scope.count = 0;
-    $scope.processStatus = "On";
-    $scope.cpuUsage = 0;
-    $scope.memoryUsage = 0;
-    $scope.fadedIn = true;
-    $scope.instances = Math.floor((Math.random() * 10) + 1);
-    $scope.processCount = ProcessService.getProcessCount();
+  .controller('ProcessController', ['$scope', '$timeout', 'ProcessService', function ($scope, $timeout, ProcessService) {
+    $scope.processCreated = false;
+
+    //"Creating" process via Service call that goes to a Mock Backend
+    ProcessService.createProcess().then(function(data) {
+      $scope.processCreated = true;
+      $scope.processStatus = data.processStatus;
+      $scope.cpuUsage = data.cpuUsage;
+      $scope.memoryUsage = data.memoryUsage;
+      $scope.insances = data.instances;
+
+      $scope.processCount = ProcessService.getProcessCount();
+
+    });
 
     $scope.upTime = 0;
     var ticker = function () {
@@ -25,9 +31,7 @@ angular.module('vizdashApp')
     };
     ticker();
 
-    // $http.get('/phones').then(function(response) {
-    //   console.log(response.data);
-    // });
+
 
     var updateMemory = function () {
       $scope.memoryUsage = ProcessService.getProcessMemory($scope.memoryUsage)

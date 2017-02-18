@@ -1,11 +1,16 @@
-angular.module('vizdashApp').run(function($httpBackend) {
+angular.module('vizdashApp').run(function ($httpBackend) {
   var phones = [{name: 'phone1'}, {name: 'phone2'}];
+  var initService = {'processStatus': 'On',
+                      'cpuUsage': 0,
+                      'memoryUsage':0,
+                      'instances':Math.floor((Math.random() * 10) + 1)};
 
+  $httpBackend.whenGET('/v1/process').respond(initService);
   // returns the current list of phones
   $httpBackend.whenGET('/phones').respond(phones);
 
   // adds a new phone to the phones array
-  $httpBackend.whenPOST('/phones').respond(function(method, url, data) {
+  $httpBackend.whenPOST('/phones').respond(function (method, url, data) {
     var phone = angular.fromJson(data);
     phones.push(phone);
     return [200, phone, {}];
