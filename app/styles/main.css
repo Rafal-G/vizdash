@@ -20,6 +20,11 @@
   min-height: 55em;
 }
 
+.processUptimeValue {
+  color: #e6a041;
+  margin-top: 5px;
+}
+
 .cpuChart {
   background-color: #4696c8;
   height: 100%;
@@ -39,6 +44,18 @@
   border-left: 1px solid white;
   height: 100%;
   background-color: #c8c8c8;
+}
+
+.metaDataHeading {
+  font-size: 8px;
+}
+
+.metaDataData {
+  text-align-all: center;
+  font-size: 22px;
+  height: 100%;
+  vertical-align: middle;
+  line-height: 40px;
 }
 
 .processCpu {
@@ -69,6 +86,14 @@
 
 .glyphicon {
   color: #646e7d;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }
 
 /* FONTS */

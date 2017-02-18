@@ -15,24 +15,24 @@
     </div>
     <div class="metaData">
       <div class="metaDataIndividual processStatus col-md-2 col-sm-2">
-        <div>Status</div>
-        <div>On</div>
+        <div class="metaDataHeading">Status</div>
+        <div class="processStatusData metaDataData"><span ng-class="{green: processStatus === 'On', red: processStatus === 'Off'}">{{processStatus}}</span></div>
       </div>
-      <div class="metaDataIndividual processInstances col-md-3 col-sm-3">
-        <div>Instances</div>
-        <div>4</div>
+      <div class="metaDataIndividual processInstances col-md-2 col-sm-2">
+        <div class="metaDataHeading">Instances</div>
+        <div class="metaDataData">{{instances}}</div>
       </div>
       <div class="metaDataIndividual processMemory col-md-2 col-sm-2">
-        <div>Memory</div>
-        <div>39mb</div>
+        <div class="metaDataHeading">Memory</div>
+        <div class="metaDataData">{{memoryUsage}}</div>
       </div>
-      <div class="metaDataIndividual processUptime col-md-3 col-sm-3">
-        <div>Up Time</div>
-        <div class="processUptimeValue">{{upTime| secondsToDate | date:'HH:mm:ss'}}</div>
+      <div class="metaDataIndividual processUptime col-md-4 col-sm-4">
+        <div class="metaDataHeading">Up Time</div>
+        <div class="processUptimeValue metaDataData">{{upTime| secondsToDate | date:'HH:mm:ss'}}</div>
       </div>
       <div class="metaDataIndividual processRestarts col-md-2 col-sm-2">
-        <div>Restarts</div>
-        <div>0</div>
+        <div class="metaDataHeading">Restarts</div>
+        <div class="metaDataData">0</div>
       </div>
     </div>
   </div>
