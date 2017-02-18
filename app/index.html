@@ -20,42 +20,24 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
 <![endif]-->
-
 <!-- Add your site or application content here -->
-<div class="header">
-  <div class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-
-        <a href="#" class="navbar-left"><img style="max-width:200px;" src="images/vizexplorer-logo.png"></a>
-      </div>
-
-      <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-        <ul class="nav navbar-right">
-          <li>Dashboard Assignment</li>
-          <!--<li class="active"><a href="#/">Home</a></li>-->
-          <!--<li><a ng-href="#/about">About</a></li>-->
-          <!--<li><a ng-href="#/">Contact</a></li>-->
-        </ul>
+<div class="vizdashcontainer">
+  <div class="header">
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="#" class="navbar-left"><img class="logoImage" src="images/vizexplorer-logo.png"></a>
+        </div>
+        <div class="headerText pull-right">Dashboard Assignment</div>
       </div>
     </div>
   </div>
+
+  <div class="container">
+    <div ng-view=""></div>
+  </div>
 </div>
 
-<div class="container">
-  <div ng-view=""></div>
-</div>
-
-<div class="footer">
-</div>
 
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->

@@ -1,8 +1,16 @@
 .processcontainer {
-  margin: 5px;
-  padding: 10px;
   border-radius: 5px;
   background: #f8f8f8;
+  margin-bottom:10px;
+  padding: 5px;
+}
+
+.vizdashcontainer {
+  margin: 30px;
+  border-radius: 5px;
+  background: white;
+  height: 100%;
+  min-height: 55em;
 }
 #processCpu {
   height: 80px;
@@ -11,6 +19,19 @@
 #metaData {
   height: 60px
 }
+
+.logoImage {
+  padding: 10px;
+  max-width:200px;
+}
+.headerText {
+  padding: 10px;
+  font-size: 32px;
+  color: #DCE1E6;
+}
+
+
+/* GRUNT GENERATED */
 
 .browsehappy {
   margin: 0.2em 0;
@@ -21,6 +42,9 @@
 
 body {
   padding: 0;
+  background-color: #373C46;
+  height: 100%;
+  min-height: 100%;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
