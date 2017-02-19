@@ -24,7 +24,7 @@ angular.module('vizdashApp').run(function ($httpBackend) {
   //This should actually be /v1/process/:processId/memory however currently I can't get the Regex matching here.
   //And ngMocke2e doesn't work well with path parameters.
   $httpBackend.whenGET('/v1/process/memory').respond(function(method, url, data) {
-    return [200, randomInt(100), {}];
+    return [200, "DoesNothing", {}];
   });
 
   // allow views directory to go to real $http

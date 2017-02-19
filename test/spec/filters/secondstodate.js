@@ -12,8 +12,8 @@ describe('Filter: secondsToDate', function () {
   }));
 
   it('should return the input prefixed with "secondsToDate filter:"', function () {
-    var text = 'angularjs';
-    expect(secondsToDate(text)).toBe('secondsToDate filter: ' + text);
+    var text = '440633471000';
+    expect(secondsToDate(text)).toBe(440633424200000);
   });
 
 });
