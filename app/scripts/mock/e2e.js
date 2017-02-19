@@ -4,7 +4,11 @@ angular.module('vizdashApp').run(function ($httpBackend) {
     'cpuUsage': 0,
     'memoryUsage': 0,
     'uptime': 0,
-    'instances': 0
+    'instances': 0,
+    'restarts' : 0,
+    'restartStats' : {
+      'date': ['22 Jan 2017 11:21:33', '24 Jan 2017 13:11:31','26 Jan 2017 01:01:01']
+    }
   };
 
   var randomInt = function(max) {

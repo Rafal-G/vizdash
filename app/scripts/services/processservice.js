@@ -23,7 +23,9 @@ angular.module('vizdashApp')
       return Math.floor((Math.random() * max) + 1);
     };
 
-    //Passing a function to do a calculation
+    //Passing a function to do a calculation if the add function is passed through
+    // a random amount gets added to amount if the subtract function is passed through
+    // a random number gets subtracted from amount
     var modifyAmount = function (amount, operatorFunction) {
       return operatorFunction(amount, randomInt(10));
     };

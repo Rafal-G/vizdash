@@ -21,9 +21,20 @@ angular.module('vizdashApp')
       $scope.insances = data.instances;
       $scope.upTime = data.uptime;
       $scope.processId = ProcessService.getProcessId();
+      $scope.processRestarts = data.restarts;
 
       $scope.instances = ProcessService.getInstances();
     });
+
+    //CPU Seed data needed for the CPU chart
+    $scope.cpuData = [];
+
+    var seedCpuData = function () {
+      for (var i = 0; i < 11; i++) {
+        $scope.cpuData.push({time: i, cpu: 0})
+      }
+    };
+    seedCpuData();
 
     //Ticker method that is used to fetch the latest process statistics
     var ticker = function () {
@@ -43,20 +54,12 @@ angular.module('vizdashApp')
 
     //Update process CPU usage
     var updateCPU = function () {
-      $scope.cpuUsage = ProcessService.getProcessCpu().then(function(data) {
+      $scope.cpuUsage = ProcessService.getProcessCpu().then(function (data) {
         $scope.cpuUsage = data;
         var time = $scope.cpuData.length + 1;
         $scope.cpuData.push({time: time, cpu: $scope.cpuUsage});
       });
     };
 
-    $scope.cpuData = [];
-
-    var seedCpuData = function () {
-      for (var i = 0; i < 11; i++) {
-        $scope.cpuData.push({time: i, cpu: 0})
-      }
-    };
-    seedCpuData();
   }]);
 

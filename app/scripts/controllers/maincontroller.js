@@ -8,9 +8,5 @@
  * Controller of the vizdashApp
  */
 angular.module('vizdashApp')
-  .controller('MainCtrl', function ($scope) {
-
-    $scope.clickMe = function() {
-      console.log("CLICKED")
-    }
+  .controller('MainController', function ($scope) {
   });
