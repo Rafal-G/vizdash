@@ -1,8 +1,8 @@
 <!--<div fader fadeDuration="200" fadeShown="fadedIn" class="col-md-6">-->
-<div class="col-md-6" >
+<div class="col-md-6">
   <div class="processcontainer animate-show-hide" ng-show="processCreated">
     <div class="processTitleBar row">
-      Process: {{processId}}
+      Process: <span class="processId">{{processId}}</span>
       <i class="glyphicon glyphicon-remove pull-right" ng-click="removeDirective()"></i>
 
     </div>
@@ -17,7 +17,8 @@
     <div class="metaData row">
       <div class="metaDataIndividual processStatus col-md-2 col-sm-2">
         <div class="metaDataHeading">Status</div>
-        <div class="processStatusData metaDataData"><span ng-class="{green: processStatus === 'On', red: processStatus === 'Off'}">{{processStatus}}</span></div>
+        <div class="processStatusData metaDataData"><span
+          ng-class="{green: processStatus === 'On', red: processStatus === 'Off'}">{{processStatus}}</span></div>
       </div>
       <div class="metaDataIndividual processInstances col-md-2 col-sm-2">
         <div class="metaDataHeading">Instances</div>
@@ -33,7 +34,10 @@
       </div>
       <div class="metaDataIndividual processRestarts col-md-2 col-sm-2">
         <div class="metaDataHeading">Restarts</div>
-        <div class="metaDataData">{{processRestarts}}</div>
+        <div class="metaDataData">{{processRestarts}}
+          <i class="glyphicon glyphicon-chevron-down" popover-directive popover-html="{{restartData}}" popover-placement="bottom"></i>
+        </div>
+
       </div>
     </div>
   </div>

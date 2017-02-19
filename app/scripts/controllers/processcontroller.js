@@ -9,6 +9,10 @@
 angular.module('vizdashApp')
   .controller('ProcessController', ['$scope', '$timeout', 'ProcessService', function ($scope, $timeout, ProcessService) {
 
+    $scope.test = function () {
+      console.log("click");
+      $(element).popover();
+    };
     var pollingIntervalMS = 1000;
     $scope.processCreated = false;
 
@@ -22,6 +26,19 @@ angular.module('vizdashApp')
       $scope.upTime = data.uptime;
       $scope.processId = ProcessService.getProcessId();
       $scope.processRestarts = data.restarts;
+
+      //Simulate restarts on 2nd process
+      if($scope.processId == 1) {
+        $scope.processRestarts = 3;
+      }
+
+      //Only display restart data if restarts are more than 0
+      $scope.restartData = "";
+      if ($scope.processRestarts > 0) {
+        for (var i = 0; i < data.restartStats.date.length; i++) {
+          $scope.restartData = "<p style='white-space:nowrap;'>" + $scope.restartData + data.restartStats.date[i] + "</p>";
+        }
+      }
 
       $scope.instances = ProcessService.getInstances();
     });
