@@ -19,21 +19,17 @@ angular.module('vizdashApp')
       return x + y;
     };
 
-    var modifyAmount = function (amount, operatorFunction) {
-      return operatorFunction(amount, randomInt(10));
-    };
-
-
     var randomInt = function(max) {
       return Math.floor((Math.random() * max) + 1);
     };
 
+    //Passing a function to do a calculation
     var modifyAmount = function (amount, operatorFunction) {
       return operatorFunction(amount, randomInt(10));
     };
 
     return {
-      //Create the process and return a promise.
+      //Create the process from the mock backend and return a promise.
       createProcess: function() {
         var promise = $http.get('/v1/process/create').then(function(response) {
           return response.data;
@@ -41,7 +37,7 @@ angular.module('vizdashApp')
         return promise;
       },
 
-      //Return the process CPU via promise
+      //Return the process CPU from the mock backend via promise
       getProcessCpu: function() {
         var promise = $http.get('/v1/process/cpu').then(function(response) {
           return response.data;
