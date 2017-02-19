@@ -9,10 +9,6 @@
 angular.module('vizdashApp')
   .controller('ProcessController', ['$scope', '$timeout', 'ProcessService', function ($scope, $timeout, ProcessService) {
 
-    $scope.test = function () {
-      console.log("click");
-      $(element).popover();
-    };
     var pollingIntervalMS = 1000;
     $scope.processCreated = false;
 

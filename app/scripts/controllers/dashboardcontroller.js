@@ -18,4 +18,4 @@ angular.module('vizdashApp')
       angular.element(containerDiv).append(processDiv);
     };
 
-  }])
+  }]);

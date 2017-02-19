@@ -10,9 +10,8 @@ angular.module('vizdashApp')
   .directive('popoverDirective', function () {
     return {
       restrict: 'A',
-      template: '<span>{{label}}</span>',
+      template: '',
       link: function (scope, el, attrs) {
-        scope.label = attrs.popoverLabel;
         $(el).popover({
           trigger: 'click',
           html: true,
