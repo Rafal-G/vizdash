@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: podDirective', function () {
+describe('Directive: processDirective', function () {
 
   // load the directive's module
   beforeEach(module('vizdashApp'));
@@ -13,7 +13,7 @@ describe('Directive: podDirective', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<pod-directive></pod-directive>');
+    element = angular.element('<process-directive></process-directive>');
     element = $compile(element)(scope);
     expect(element.text()).toBe('this is the podDirective directive');
   }));
