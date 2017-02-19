@@ -19,6 +19,11 @@ angular.module('vizdashApp')
       return x + y;
     };
 
+    var modifyAmount = function (amount, operatorFunction) {
+      return operatorFunction(amount, randomInt(10));
+    };
+
+
     var randomInt = function(max) {
       return Math.floor((Math.random() * max) + 1);
     };
@@ -36,11 +41,15 @@ angular.module('vizdashApp')
         return promise;
       },
 
-      getInstances: function() {
-        return randomInt(10);
+      //Return the process CPU via promise
+      getProcessCpu: function() {
+        var promise = $http.get('/v1/process/cpu').then(function(response) {
+          return response.data;
+        });
+        return promise;
       },
 
-      //Get process Memory from mock backend via promise
+      //Work out process memory by passing through a function of subtract or add that is defined above
       getProcessMemory: function (amount) {
         if (amount >= 50) {
           return modifyAmount(amount, subtract);
@@ -48,11 +57,15 @@ angular.module('vizdashApp')
           return modifyAmount(amount, add);
         }
       },
-      getProcessCount: function () {
-        return processCount;
+
+      getInstances: function() {
+        return randomInt(10);
       },
 
-      incrementProcessCount: function () {
+      getProcessId: function () {
+        return processCount;
+      },
+      incrementProcessId: function () {
         processCount++;
       }
     }

@@ -8,10 +8,11 @@
  */
 angular.module('vizdashApp')
   .controller('ProcessController', ['$scope', '$timeout', 'ProcessService', function ($scope, $timeout, ProcessService) {
+
     var pollingIntervalMS = 1000;
     $scope.processCreated = false;
 
-    //"Creating" process via Service call that goes to a Mock Backend
+    //"Creating" process via a service call that goes to the Mock Backend
     ProcessService.createProcess().then(function (data) {
       $scope.processCreated = true;
       $scope.processStatus = data.processStatus;
@@ -19,31 +20,34 @@ angular.module('vizdashApp')
       $scope.memoryUsage = data.memoryUsage;
       $scope.insances = data.instances;
       $scope.upTime = data.uptime;
-      $scope.processCount = ProcessService.getProcessCount();
+      $scope.processId = ProcessService.getProcessId();
 
       $scope.instances = ProcessService.getInstances();
     });
 
+    //Ticker method that is used to fetch the latest process statistics
     var ticker = function () {
-      $timeout(ticker, pollingIntervalMS);
-
       if ($scope.processCreated) {
         $scope.upTime++;
-        $timeout(updateCPU, pollingIntervalMS);
-        $timeout(updateMemory, pollingIntervalMS);
+        updateCPU();
+        updateMemory();
       }
+      $timeout(ticker, pollingIntervalMS);
     };
     ticker();
 
+    //Update process memory
     var updateMemory = function () {
-      $scope.memoryUsage = ProcessService.getProcessMemory($scope.memoryUsage)
+      $scope.memoryUsage = ProcessService.getProcessMemory($scope.processId, $scope.memoryUsage)
     };
-    var updateCPU = function () {
 
-      $scope.cpuUsage = Math.floor((Math.random() * 100) + 1);
-      var time = $scope.cpuData.length + 1;
-      // var cpu = Math.round(Math.random() * 100);
-      $scope.cpuData.push({time: time, cpu: $scope.cpuUsage});
+    //Update process CPU usage
+    var updateCPU = function () {
+      $scope.cpuUsage = ProcessService.getProcessCpu().then(function(data) {
+        $scope.cpuUsage = data;
+        var time = $scope.cpuData.length + 1;
+        $scope.cpuData.push({time: time, cpu: $scope.cpuUsage});
+      });
     };
 
     $scope.cpuData = [];
