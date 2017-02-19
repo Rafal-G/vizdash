@@ -10,7 +10,6 @@ angular.module('vizdashApp')
   .directive('popoverDirective', function () {
     return {
       restrict: 'A',
-      template: '',
       link: function (scope, el, attrs) {
         $(el).popover({
           trigger: 'click',
